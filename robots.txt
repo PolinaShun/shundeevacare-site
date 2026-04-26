@@ -1,0 +1,44 @@
+# robots.txt для shundeevacare.ru
+# Правила для всех роботов
+
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию служебных файлов и директорий
+Disallow: /js/
+Disallow: /styles/
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /manifest.json
+
+# Разрешаем индексацию изображений и материалов
+Allow: /assets/img/
+Allow: /materials/files/
+Allow: /*.pdf$
+Allow: /*.webp$
+
+# Специальные правила для Яндекса
+User-agent: Yandex
+Allow: /
+Disallow: /js/
+Disallow: /styles/
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term
+
+# Специальные правила для Google
+User-agent: Googlebot
+Allow: /
+Disallow: /js/
+Disallow: /styles/
+
+# Правила для Googlebot-Image (индексация изображений)
+User-agent: Googlebot-Image
+Allow: /assets/img/
+
+# Ссылка на XML-карту сайта
+Sitemap: https://shundeevacare.ru/sitemap.xml
+
+# Время обхода (для Яндекса)
+# Crawl-delay: 1
+
+# Хост сайта (для Яндекса)
+Host: shundeevacare.ru

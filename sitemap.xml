@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Главная страница -->
+  <url>
+    <loc>https://shundeevacare.ru/</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://shundeevacare.ru/assets/img/portrait.jpg</image:loc>
+      <image:title>Психолог-психоаналитик Полина Шундеева</image:title>
+      <image:caption>Психолог онлайн в психодинамическом подходе</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Секция: С чем я могу помочь -->
+  <url>
+    <loc>https://shundeevacare.ru/#about</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Секция: Подход и образование -->
+  <url>
+    <loc>https://shundeevacare.ru/#edu</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://shundeevacare.ru/assets/img/edu1.webp</image:loc>
+      <image:title>Диплом бакалавра - Психоанализ</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shundeevacare.ru/assets/img/edu2.webp</image:loc>
+      <image:title>Диплом Восточно-Европейского института психоанализа</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://shundeevacare.ru/assets/img/edu3.webp</image:loc>
+      <image:title>Сертификат Классический психоанализ 2340 часов</image:title>
+    </image:image>
+  </url>
+
+  <!-- Секция: О работе со мной (цены) -->
+  <url>
+    <loc>https://shundeevacare.ru/#pricing</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Секция: Частые вопросы (FAQ) -->
+  <url>
+    <loc>https://shundeevacare.ru/#faq</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Страница: Блог -->
+  <url>
+    <loc>https://shundeevacare.ru/blog.html</loc>
+    <lastmod>2026-01-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Страница: Материалы -->
+  <url>
+    <loc>https://shundeevacare.ru/materials/index.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://shundeevacare.ru/materials/therapy-expectations.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://shundeevacare.ru/materials/psychosomatics-weight.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://shundeevacare.ru/materials/anxiety-instruction.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://shundeevacare.ru/materials/why-therapy.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://shundeevacare.ru/materials/inner-tyrant.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
