@@ -1,9 +1,13 @@
 window.addEventListener('load', function() {
-    setTimeout(() => {
-        document.getElementById('loadingOverlay').style.display = 'none';
-        document.getElementById('main').style.display = 'block';
-        document.getElementById('main').classList.remove('_hidden');
-    }, 1000);
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const mainContent = document.getElementById('main');
+    if (loadingOverlay && mainContent) {
+        setTimeout(() => {
+            loadingOverlay.style.display = 'none';
+            mainContent.style.display = 'block';
+            mainContent.classList.remove('_hidden');
+        }, 1000);
+    }
 });
 
 // Unified DOMContentLoaded handler
@@ -30,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Функция для обновления карусели
     function updateCarousel() {
+        if (!slides || indicators.length === 0) return;
+
         // Обновляем положение слайдов
         slides.style.transform = `translateX(-${currentIndex * 100}%)`;
 
@@ -49,12 +55,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Переход к предыдущему слайду
     function goToPrevSlide() {
+        if (slideCount === 0) return;
         currentIndex = (currentIndex - 1 + slideCount) % slideCount;
         updateCarousel();
     }
 
     // Переход к следующему слайду
     function goToNextSlide() {
+        if (slideCount === 0) return;
         currentIndex = (currentIndex + 1) % slideCount;
         updateCarousel();
     }
@@ -67,7 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Открытие модального окна
     function openModal(index) {
+        if (!modal || !modalImage || !modalCaption || !slideItems[index]) return;
         const img = slideItems[index].querySelector('img');
+        if (!img) return;
         modalImage.src = img.src;
         modalCaption.textContent = img.dataset.caption;
         modal.classList.remove('hidden');
@@ -78,14 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Закрытие модального окна
     function closeModalWindow() {
+        if (!modal) return;
         modal.classList.add('hidden');
         modal.classList.remove('flex');
         document.body.style.overflow = ''; // Разблокируем прокрутку страницы
     }
 
     // Обработчики событий для карусели
-    prevBtn.addEventListener('click', goToPrevSlide);
-    nextBtn.addEventListener('click', goToNextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', goToPrevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', goToNextSlide);
 
     // Обработчики для индикаторов
     indicators.forEach((indicator, index) => {
@@ -95,63 +106,71 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработчики для открытия модального окна при клике на изображение
     slideItems.forEach((slide, index) => {
         const img = slide.querySelector('img');
-        img.addEventListener('click', () => openModal(index));
+        if (img) img.addEventListener('click', () => openModal(index));
     });
 
     // Обработчики для модального окна
-    closeModal.addEventListener('click', closeModalWindow);
-    modalPrev.addEventListener('click', () => {
+    if (closeModal) closeModal.addEventListener('click', closeModalWindow);
+    if (modalPrev) modalPrev.addEventListener('click', () => {
         goToPrevSlide();
         const img = slideItems[currentIndex].querySelector('img');
-        modalImage.src = img.src;
-        modalCaption.textContent = img.dataset.caption;
+        if (img && modalImage && modalCaption) {
+            modalImage.src = img.src;
+            modalCaption.textContent = img.dataset.caption;
+        }
     });
-    modalNext.addEventListener('click', () => {
+    if (modalNext) modalNext.addEventListener('click', () => {
         goToNextSlide();
         const img = slideItems[currentIndex].querySelector('img');
-        modalImage.src = img.src;
-        modalCaption.textContent = img.dataset.caption;
-    });
-
-    // Закрытие модального окна при клике вне изображения
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModalWindow();
+        if (img && modalImage && modalCaption) {
+            modalImage.src = img.src;
+            modalCaption.textContent = img.dataset.caption;
         }
     });
 
+    // Закрытие модального окна при клике вне изображения
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModalWindow();
+            }
+        });
+    }
+
     // Закрытие модального окна при нажатии Escape
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        if (!modal || modal.classList.contains('hidden')) return;
+        
+        if (e.key === 'Escape') {
             closeModalWindow();
-        } else if (e.key === 'ArrowLeft' && !modal.classList.contains('hidden')) {
-            modalPrev.click();
-        } else if (e.key === 'ArrowRight' && !modal.classList.contains('hidden')) {
-            modalNext.click();
+        } else if (e.key === 'ArrowLeft') {
+            if (modalPrev) modalPrev.click();
+        } else if (e.key === 'ArrowRight') {
+            if (modalNext) modalNext.click();
         }
     });
 
     // Свайп для мобильных устройств
-    let touchStartX = 0;
-    let touchEndX = 0;
+    if (slider) {
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-    slider.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
+        slider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
 
-    slider.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, { passive: true });
+        slider.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
 
-    function handleSwipe() {
-        const swipeThreshold = 50; // Минимальное расстояние для свайпа
-        if (touchEndX < touchStartX - swipeThreshold) {
-            // Свайп влево - следующий слайд
-            goToNextSlide();
-        } else if (touchEndX > touchStartX + swipeThreshold) {
-            // Свайп вправо - предыдущий слайд
-            goToPrevSlide();
+        function handleSwipe() {
+            const swipeThreshold = 50; // Минимальное расстояние для свайпа
+            if (touchEndX < touchStartX - swipeThreshold) {
+                goToNextSlide();
+            } else if (touchEndX > touchStartX + swipeThreshold) {
+                goToPrevSlide();
+            }
         }
     }
 
@@ -162,42 +181,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
-    mobileMenuBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('open');
-    });
-
-    // Закрывать меню при клике на ссылку
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('open');
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('open');
         });
-    });
+
+        // Закрывать меню при клике на ссылку
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('open');
+            });
+        });
+    }
 
     // ===== MOBILE CARD ANIMATIONS =====
-    // Отключение анимации карточек на мобильных устройствах
     const isMobile = window.innerWidth <= 768;
-
     if (isMobile) {
-        // Находим все карточки в блоке "О работе со мной"
         const cards = document.querySelectorAll('#pricing .card-hover');
-
-        // Для каждой карточки
         cards.forEach(card => {
-            // Удаляем класс card-hover и добавляем статический класс
             card.classList.remove('card-hover');
             card.classList.add('card-static');
 
-            // Показываем скрытый контент
             const revealElements = card.querySelectorAll('.card-reveal');
             revealElements.forEach(el => {
                 el.style.opacity = '1';
                 el.style.transform = 'none';
             });
 
-            // Показываем стрелки
             const ctaElements = card.querySelectorAll('.card-cta');
             ctaElements.forEach(el => {
                 el.style.opacity = '1';
