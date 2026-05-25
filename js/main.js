@@ -6,6 +6,13 @@ window.addEventListener('load', function() {
             loadingOverlay.style.display = 'none';
             mainContent.style.display = 'block';
             mainContent.classList.remove('_hidden');
+
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         }, 1000);
     }
 });

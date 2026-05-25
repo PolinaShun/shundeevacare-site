@@ -1,44 +1,48 @@
 # robots.txt для shundeevacare.ru
-# Правила для всех роботов
 
 User-agent: *
 Allow: /
 
-# Запрещаем индексацию служебных файлов и директорий
-Disallow: /js/
-Disallow: /styles/
-Disallow: /*.js$
-Disallow: /*.css$
+# Служебные файлы без контента для пользователей
 Disallow: /manifest.json
+Disallow: /desktop.ini
 
-# Разрешаем индексацию изображений и материалов
-Allow: /assets/img/
-Allow: /materials/files/
-Allow: /*.pdf$
-Allow: /*.webp$
+# НЕ блокируем /js/ и /styles/ — Google требует доступ к CSS/JS для рендеринга
+# (блокировка ресурсов = страница выглядит как текстовый хлам, позиции падают)
 
-# Специальные правила для Яндекса
+# Параметры UTM — не дублируем страницы
 User-agent: Yandex
 Allow: /
-Disallow: /js/
-Disallow: /styles/
+Disallow: /manifest.json
+Disallow: /desktop.ini
 Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term
 
-# Специальные правила для Google
 User-agent: Googlebot
 Allow: /
-Disallow: /js/
-Disallow: /styles/
 
-# Правила для Googlebot-Image (индексация изображений)
+# Индексация изображений и материалов
 User-agent: Googlebot-Image
 Allow: /assets/img/
+Allow: /materials/files/
+
+# AI-краулеры — разрешаем всё (GEO: Perplexity, ChatGPT, Claude, Gemini)
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 # Ссылка на XML-карту сайта
 Sitemap: https://shundeevacare.ru/sitemap.xml
-
-# Время обхода (для Яндекса)
-# Crawl-delay: 1
 
 # Хост сайта (для Яндекса)
 Host: shundeevacare.ru

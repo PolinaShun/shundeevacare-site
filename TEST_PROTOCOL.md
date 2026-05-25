@@ -1,23 +1,72 @@
 # Test Protocol: ShundeevaCare Site
 
-This document outlines the mandatory verification scenarios for the project.
+Обязательный чеклист перед каждым пушем на прод.
+Запускать последовательно — нельзя пропускать пункты.
 
-## 1. Visual Verification
-- [ ] Mobile Responsiveness: Check the page on common screen widths.
-- [ ] Layout Integrity: Ensure no elements are overlapping or broken.
-- [ ] Images: All images must load correctly.
+---
 
-## 2. Functional Verification
-- [ ] Links: All modified or added links must be RELATIVE and functional.
-- [ ] Forms: If any forms exist, verify they submit correctly (or mock the submission).
-- [ ] Navigation: Menu and footer links should work.
+## 1. Визуальная проверка
 
-## 3. Deployment Readiness
-- [ ] HTML Validation: No broken tags or critical syntax errors.
-- [ ] Console Errors: No JavaScript errors in the browser console.
-- [ ] File Paths: Ensure all assets (CSS, JS, Images) use correct relative paths.
+- [ ] **Мобильный**: открыть страницу на ширине 375px и 768px — нет горизонтального скролла, нет перекрытий
+- [ ] **Десктоп**: открыть на ширине 1280px — layout корректен
+- [ ] **Изображения**: все img загружаются (нет битых иконок/фото)
+- [ ] **Шрифты**: текст отображается (нет FOUT/невидимого текста)
 
-## Procedure
-1. Perform changes.
-2. Run local verification.
-3. **Invoke Sub-agent:** Call a testing sub-agent to run through this checklist before final delivery.
+## 2. Функциональная проверка
+
+- [ ] **Навигация**: все ссылки в header и footer ведут на реальные страницы (не 404)
+- [ ] **CTA-кнопки**: ссылки на Telegram (`https://t.me/polina_shundeeva`) открываются
+- [ ] **Пути к ресурсам**: CSS, JS, изображения загружаются (нет 404 в DevTools → Network)
+- [ ] **Console**: нет JavaScript-ошибок в DevTools → Console
+
+## 3. SEO-проверка (для каждой изменённой страницы)
+
+- [ ] **Title**: уникальный, 50–60 символов, ключевое слово в начале
+- [ ] **Meta description**: 120–160 символов, читаемый текст
+- [ ] **Canonical**: тег `<link rel="canonical">` указывает на правильный URL
+- [ ] **H1**: один на странице, содержит ключевое слово
+- [ ] **OG-теги**: `og:title`, `og:description`, `og:image` — все заполнены
+- [ ] **Schema.org**: JSON-LD блок присутствует, тип соответствует странице
+
+## 4. Проверка robots.txt
+
+- [ ] Открыть `https://shundeevacare.ru/robots.txt` (или локальный файл)
+- [ ] Убедиться: **нет** `Disallow: /js/` и `Disallow: /styles/`
+- [ ] Убедиться: `Sitemap:` указывает на `https://shundeevacare.ru/sitemap.xml`
+- [ ] Убедиться: присутствуют блоки для `GPTBot`, `PerplexityBot`, `ClaudeBot`
+
+## 5. Проверка sitemap.xml
+
+- [ ] Открыть `sitemap.xml` — валидный XML (нет синтаксических ошибок)
+- [ ] Нет URL с якорями (`#about`, `#edu`, `#pricing`, `#faq`)
+- [ ] Все страницы сайта присутствуют в sitemap
+- [ ] URL `/materials/` — без `index.html` в конце
+- [ ] `<lastmod>` не старше даты последнего изменения файла
+
+## 6. Проверка llms.txt
+
+- [ ] Файл `/llms.txt` существует в корне
+- [ ] Все ссылки на страницы и материалы актуальны
+- [ ] При добавлении новой статьи — добавить строку в `llms.txt`
+
+## 7. Безопасность
+
+- [ ] Нет файлов с кредами в репозитории: `wp-config.php`, `*.ps1`, `*.env`
+- [ ] Проверить `git status` — нет случайно добавленных секретов
+- [ ] `git diff HEAD` — просмотреть все изменения перед коммитом
+
+## 8. HTML-валидация (критичные изменения)
+
+- [ ] Вставить HTML в [validator.w3.org](https://validator.w3.org) — нет критических ошибок
+- [ ] Структурированные данные проверить на [search.google.com/test/rich-results](https://search.google.com/test/rich-results)
+
+---
+
+## Процедура выпуска
+
+1. Внести изменения локально
+2. Пройти весь чеклист выше
+3. `git add` + `git commit` с осмысленным сообщением
+4. Дать команду **"пушим"** — только тогда выполняется `git push`
+
+> **Правило:** пуш только по явной команде. Тестирование — всегда перед пушем.

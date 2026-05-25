@@ -1,0 +1,60 @@
+# Static site configuration — shundeevacare.ru
+# Overrides any legacy WordPress .htaccess on the server
+
+Options -Indexes
+
+# ── MIME types ────────────────────────────────────────────────
+AddType application/xml          .xml
+AddType text/xml                 .xml
+AddType text/plain               .txt
+AddType application/manifest+json .json
+AddType image/svg+xml            .svg
+AddType font/woff2               .woff2
+AddType font/woff                .woff
+
+# ── Force static files — serve directly, no PHP/rewrites ─────
+<FilesMatch "\.(xml|txt|html|css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|json)$">
+    SetHandler default-handler
+</FilesMatch>
+
+# ── Rewrites ─────────────────────────────────────────────────
+# HTTPS and www→non-www are handled by ISPmanager/proxy on Cloud4box.
+# Do NOT add HTTPS redirect here — Apache sees HTTPS=off behind the proxy
+# and it creates an infinite redirect loop (ERR_TOO_MANY_REDIRECTS).
+RewriteEngine On
+
+# ── Serve .html files without extension ──────────────────────
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# ── Block sensitive files ─────────────────────────────────────
+<FilesMatch "(wp-config\.php|\.env|desktop\.ini|manifest\.json)$">
+    Require all denied
+</FilesMatch>
+
+# ── Security headers ──────────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── Caching ───────────────────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html             "access plus 1 hour"
+    ExpiresByType text/css              "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/jpeg            "access plus 1 year"
+    ExpiresByType image/png             "access plus 1 year"
+    ExpiresByType image/svg+xml         "access plus 1 month"
+    ExpiresByType application/xml       "access plus 1 day"
+    ExpiresByType text/xml              "access plus 1 day"
+</IfModule>
+
+# ── Compression ───────────────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/xml text/xml text/plain
+</IfModule>
