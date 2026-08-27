@@ -455,3 +455,535 @@ details[open] > p:first-of-type {
 details[open] > p + p {
     margin-top: 10px;
 }
+
+/* ==========================================================================
+   TOPICS: «С чем я работаю» — построчный список (стилистика сайта) */
+.topics-section {
+    background: #ffffff;
+    color: #1f2937;
+    margin-top: 0;
+    padding: 48px 0;
+    font-family: inherit;
+}
+
+.topics-section .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 64px);
+}
+
+/* Шапка секции */
+.topics-section .section-header {
+    margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.topics-section .section-num {
+    font-family: inherit;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 12px;
+}
+
+.topics-section .section-num::after {
+    display: none;
+}
+
+.topics-section .section-title {
+    font-family: inherit;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: normal;
+    color: #111827;
+    margin: 0;
+}
+
+.topics-section .section-lead {
+    margin-top: 14px;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4b5563;
+    max-width: 560px;
+}
+
+/* Список строк */
+.topics-section .topics-grid {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.topics-section .topic-card {
+    display: grid;
+    grid-template-columns: 48px 280px 1fr;
+    gap: 24px;
+    align-items: start;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: background 0.3s ease;
+}
+
+.topics-section .topic-card:hover {
+    background: #f9fafb;
+}
+
+.topics-section .topic-index {
+    font-family: inherit;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+}
+
+.topics-section .topic-title {
+    font-family: inherit;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #111827;
+    margin: 0;
+}
+
+.topics-section .topic-desc {
+    font-family: inherit;
+    font-style: normal;
+    color: #4b5563;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .topics-section .topic-card {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+/* ==========================================================================
+   ЕДИНАЯ ТИПОГРАФИЧЕСКАЯ СИСТЕМА САЙТА
+   H2 секций:  по левому краю, 32px / 600 / #1e293b / отступ снизу 24px
+   Подзаголовок секции (.section-lead): по левому краю, 15px / #64748b, max-width 580px
+   Наборный текст: 16px / 1.6 / #333333 (по всему сайту)
+========================================================================== */
+
+/* --- H2 заголовки ключевых секций (единый размер) --- */
+#topics .section-title,
+#edu h2,
+#pricing h2,
+#faq h2,
+#contacts h2,
+#articles h2,
+#websites h2,
+#tools h2,
+#videos h2 {
+    text-align: left;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #1e293b;
+    margin: 0 0 24px 0;
+}
+
+/* --- Герой: плотный стык со следующей секцией --- */
+main section.hero-bg {
+    margin-bottom: 0;
+}
+
+/* --- Подзаголовок секции --- */
+.section-lead {
+    text-align: left;
+    margin: 0 0 32px 0;
+    max-width: 580px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #64748b;
+}
+
+/* --- Наборный текст: весь основной текст крупнее и свободнее для чтения --- */
+body, p, .topic-desc, .faq-answer, .about-text {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: #333333;
+}
+
+/* --- Отзывы (цитаты) тоже крупнее --- */
+article.ui-panel-light blockquote {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+/* --- «Подход и образование»: сетка 1:1 с карточками равной высоты --- */
+.edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: stretch;
+}
+
+#edu .edu-carousel {
+    height: 100%;
+}
+
+#edu .edu-slider,
+#edu .edu-panel {
+    height: 100%;
+    border: 1.5px solid rgba(0, 0, 0, .18);
+    border-radius: 12px;
+}
+
+#edu .edu-panel {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .edu-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Статьи: контрастный основной текст (плотный, тёмный, чёткий) --- */
+.article-content,
+.article-content p {
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    line-height: 1.7 !important;
+    color: #1a202c !important;
+}
+
+.article-content p {
+    margin-bottom: 20px;
+}
+
+.article-title {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: 40px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1.05;
+    color: #111827;
+    font-weight: 400;
+    margin: 16px 0 24px 0;
+}
+
+.article-title .accent {
+    color: #f08130;
+    white-space: nowrap;
+}
+
+/* --- Статьи: нумерованные шаги (плакатные цифры + сплошной абзац) --- */
+.article-steps {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #f08130;
+    line-height: 1;
+    min-width: 40px;
+    margin-top: 2px;
+    font-weight: 400;
+}
+
+.article-content .step-text {
+    margin: 0;
+    font-size: 18px !important;
+    line-height: 1.65 !important;
+    color: #1a202c !important;
+}
+
+.article-content .step-text strong {
+    font-size: 18.5px;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* Жирный текст в статье */
+.article-content strong,
+.article-content b {
+    font-weight: 600 !important;
+    color: #0f172a !important;
+}
+
+/* --- Статьи: тёплая цитата-плашка (19:00) --- */
+.article-quote-block {
+    background: #fdfbf7;
+    border-left: 3px solid #f08130;
+    border-radius: 0 8px 8px 0;
+    padding: 24px 28px;
+    margin: 36px 0;
+}
+
+.article-quote-block p,
+.article-quote-block blockquote {
+    font-weight: 400 !important;
+    font-size: 17px !important;
+    line-height: 1.65;
+    color: #1f2937 !important;
+    margin: 0 !important;
+    font-style: normal;
+}
+
+.article-quote-block .quote-intro {
+    margin-bottom: 12px !important;
+}
+
+/* --- Статьи: финальный CTA-блок (лёгкая плашка) --- */
+.cta-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+    margin-top: 48px;
+}
+
+.cta-title {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #0f172a;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 12px;
+}
+
+.cta-subtitle {
+    font-size: 16px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 12px auto 24px;
+    max-width: 480px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.cta-button:hover {
+    opacity: 0.9;
+}
+
+.cta-arrow {
+    color: #f08130;
+    margin-left: 8px;
+}
+
+/* ==========================================================================
+   ШВЕЙЦАРСКИЙ ТИПОГРАФИЧЕСКИЙ ПЛАКАТ (season-autumn)
+========================================================================== */
+.swiss-poster {
+  max-width: 760px;
+  margin: 40px auto;
+  padding: 48px 32px;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Сетка рядов */
+.poster-row {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  column-gap: 24px;
+}
+
+.row-mid {
+  grid-template-columns: 1fr 32px;
+  margin: 32px 0;
+}
+
+.row-bottom {
+  grid-template-columns: 32px 1fr;
+  margin-top: 24px;
+}
+
+/* Колонки с линиями и точками */
+.line-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.v-line {
+  width: 2px;
+  background-color: #111111;
+}
+
+.h-full {
+  height: 100%;
+  min-height: 220px;
+}
+
+.h-mid {
+  height: 160px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #111111;
+  border-radius: 50%;
+}
+
+.top-dot {
+  margin-bottom: 2px;
+}
+
+.bottom-dot {
+  margin-top: 2px;
+}
+
+/* Типографика */
+.right-align {
+  text-align: right;
+}
+
+.meta-tag {
+  display: inline-block;
+  font-size: 12px !important;
+  letter-spacing: 0.08em;
+  color: #666666 !important;
+  margin-bottom: 8px;
+}
+
+.poster-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 56px;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+}
+
+.poster-title-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+}
+
+.orange-text {
+  color: #f08130;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.sub-note {
+  font-size: 14px !important;
+  color: #555555 !important;
+  margin: 0;
+}
+
+/* Списки */
+.left-content {
+  text-align: left;
+  padding-left: 12px;
+}
+
+.poster-steps {
+  list-style: decimal;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.poster-steps li {
+  font-size: 15px !important;
+  line-height: 1.6;
+  color: #222222 !important;
+  margin-bottom: 16px;
+}
+
+.poster-steps li strong {
+  color: #000000;
+}
+
+/* Кнопка */
+.poster-btn {
+  display: inline-block;
+  background: #111111;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+/* --- Плакат: вводный текст, цитата, вывод, CTA-подпись --- */
+.poster-intro-block,
+.poster-outro {
+  font-size: 16.5px !important;
+  line-height: 1.65;
+  color: #1f2937 !important;
+  margin: 28px 0;
+}
+
+.poster-intro-block p,
+.poster-outro {
+  margin-bottom: 16px;
+}
+
+.intro-lead {
+  font-weight: 600;
+  color: #0f172a !important;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.poster-quote-block {
+  background: #fdfbf7;
+  border-left: 3px solid #f08130;
+  padding: 20px 22px;
+  margin: 32px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.quote-heading {
+  font-size: 15.5px !important;
+  font-weight: 600;
+  line-height: 1.45;
+  white-space: normal;
+  color: #0f172a !important;
+  margin: 0 0 10px 0;
+}
+
+.quote-text {
+  font-size: 16px !important;
+  line-height: 1.6;
+  color: #334155 !important;
+  margin: 0;
+}
+
+.cta-note {
+  font-size: 15px !important;
+  line-height: 1.5;
+  max-width: 380px;
+  margin: 8px 0 24px auto;
+  color: #64748b !important;
+}

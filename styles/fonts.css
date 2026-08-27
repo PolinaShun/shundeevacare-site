@@ -3,5 +3,14 @@
 @font-face{font-family:"VerdanaCustom";src:url("../assets/fonts/Verdana.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;}
 @font-face{font-family:"FiraXCondSemiBold";src:url("../assets/fonts/FiraSansExtraCondensed-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap;}
 
-html,body{font-family:"TildaSansLight2",ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-weight:300;}
+html,body{font-family:"TildaSansLight2",ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-weight:300;font-size:16px;line-height:1.6;}
 h1,.as-h1{font-family:"FiraXCondSemiBold","VerdanaCustom",sans-serif;font-weight:600;}
+
+/* Журнальная дизайн-система (референс: тёплая бумага · бордо · антиква) */
+@font-face{font-family:"Cormorant Garamond";src:url("../assets/fonts/CormorantGaramond-500-normal.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap;}
+@font-face{font-family:"Cormorant Garamond";src:url("../assets/fonts/CormorantGaramond-500-italic.woff2") format("woff2");font-weight:300 700;font-style:italic;font-display:swap;}
+@font-face{font-family:"PT Serif";src:url("../assets/fonts/PTSerif-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:"PT Serif";src:url("../assets/fonts/PTSerif-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:"PT Serif";src:url("../assets/fonts/PTSerif-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:"IBM Plex Mono";src:url("../assets/fonts/IBMPlexMono-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:"IBM Plex Mono";src:url("../assets/fonts/IBMPlexMono-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;}
