@@ -1319,63 +1319,53 @@ header.hero-bg p {
         display: block;
         text-align: center;
     }
-}
 
-/* ==========================================================================
-   СТАТЬЯ ПЛАКАТА — компактный низ и футер (без гигантской пустоты)
-========================================================================== */
-/* Контейнер статьи: убираем огромный нижний отступ */
-article.container {
-    margin-bottom: 0 !important;
-    padding-bottom: 24px !important;
-}
-.swiss-poster {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-/* Кнопка / блок CTA внизу статьи */
-.poster-row.row-bottom,
-.row-bottom .content-col,
-.cta-note,
-.poster-cta,
-.cta-block,
-.cta-section {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-.poster-btn {
-    margin-bottom: 0 !important;
-}
-
-/* Подвал — компактные отступы */
-footer,
-.site-footer {
-    padding-top: 16px !important;
-    padding-bottom: 24px !important;
-    margin-top: 0 !important;
-}
-
-footer p,
-footer .copyright,
-footer .footer-links,
-footer .footer-sub,
-footer .text-gray-500,
-footer nav,
-footer div {
-    margin-top: 6px !important;
-    margin-bottom: 6px !important;
-    padding: 0 !important;
-}
-
-/* Убираем двойные внутренние отступы футера от Tailwind (pt-16 pb-8, pb-8, mb-8) */
-footer .container {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-}
-footer .border-b {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    /* Компактный низ статьи и футер — ТОЛЬКО на мобильных */
+    article.container {
+        margin-bottom: 0 !important;
+        padding-bottom: 24px !important;
+    }
+    .swiss-poster {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    .poster-row.row-bottom,
+    .row-bottom .content-col,
+    .cta-note,
+    .poster-cta,
+    .cta-block,
+    .cta-section {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    .poster-btn {
+        margin-bottom: 0 !important;
+    }
+    footer,
+    .site-footer {
+        padding-top: 16px !important;
+        padding-bottom: 24px !important;
+        margin-top: 0 !important;
+    }
+    footer p,
+    footer .copyright,
+    footer .footer-links,
+    footer .footer-sub,
+    footer .text-gray-500,
+    footer nav,
+    footer div {
+        margin-top: 6px !important;
+        margin-bottom: 6px !important;
+        padding: 0 !important;
+    }
+    footer .container {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    footer .border-b {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
 }
 
 
