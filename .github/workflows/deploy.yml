@@ -23,6 +23,7 @@ jobs:
         server-dir: /www/shundeevacare.ru/
         protocol: ftp
         timeout: 60000
+        dangerous-clean-slate: true
         exclude: |
           **/.git*
           **/.git*/**
