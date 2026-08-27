@@ -1187,4 +1187,196 @@ header.hero-bg p {
     }
 }
 
+/* ==========================================================================
+   ШВЕЙЦАРСКИЙ ПЛАКАТ — мобильная адаптация (season-autumn)
+========================================================================== */
+@media (max-width: 768px) {
+    /* html/body — без горизонтального скролла и обрезки */
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
+    /* Контейнер статьи (белый лист) — резиновый, жёстко */
+    article.container,
+    article.container article,
+    .swiss-poster {
+        max-width: 680px;
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Главный заголовок плаката — компактный, без обрезки */
+    .poster-title {
+        font-size: clamp(26px, 7vw, 42px) !important;
+        line-height: 1.15 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    .poster-title-sub {
+        font-size: clamp(24px, 6.5vw, 38px) !important;
+        line-height: 1.15 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    .orange-text {
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    /* Страховка: все внутренние элементы белого листа — не шире 100% */
+    .swiss-poster,
+    .swiss-poster * {
+        max-width: 100% !important;
+    }
+    .swiss-poster .poster-row,
+    .swiss-poster .row-mid,
+    .swiss-poster .row-bottom,
+    .swiss-poster .content-col,
+    .swiss-poster .line-col,
+    .swiss-poster .poster-steps,
+    .swiss-poster .step-item,
+    .swiss-poster .poster-intro-block,
+    .swiss-poster .poster-outro,
+    .swiss-poster .poster-quote-block {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Основной текст и подзаголовки */
+    .poster-intro-block,
+    .poster-outro,
+    .poster-intro-block p,
+    .poster-outro,
+    .quote-heading,
+    .quote-text,
+    .sub-note {
+        font-size: 15px !important;
+        line-height: 1.55 !important;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
+    .poster-steps .step-text {
+        font-size: 15px !important;
+        line-height: 1.55 !important;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
+    .poster-steps .step-title {
+        font-size: 17px !important;
+        line-height: 1.3 !important;
+        overflow-wrap: break-word;
+    }
+
+    /* Ряды: убираем направляющие линии/точки по краям, сетка в одну колонку */
+    .poster-row,
+    .row-mid,
+    .row-bottom {
+        display: block;
+        grid-template-columns: 1fr;
+    }
+
+    .line-col {
+        display: none;
+    }
+
+    .row-mid,
+    .row-bottom {
+        margin-top: 24px;
+    }
+
+    .left-content,
+    .right-align {
+        padding-left: 0;
+        text-align: left;
+    }
+
+    .empty-col {
+        display: none;
+    }
+
+    /* Оранжевая плашка и врезки — компактные отступы */
+    .poster-quote-block {
+        padding: 20px 16px !important;
+    }
+
+    .poster-btn {
+        display: block;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   СТАТЬЯ ПЛАКАТА — компактный низ и футер (без гигантской пустоты)
+========================================================================== */
+/* Контейнер статьи: убираем огромный нижний отступ */
+article.container {
+    margin-bottom: 0 !important;
+    padding-bottom: 24px !important;
+}
+.swiss-poster {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Кнопка / блок CTA внизу статьи */
+.poster-row.row-bottom,
+.row-bottom .content-col,
+.cta-note,
+.poster-cta,
+.cta-block,
+.cta-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.poster-btn {
+    margin-bottom: 0 !important;
+}
+
+/* Подвал — компактные отступы */
+footer,
+.site-footer {
+    padding-top: 16px !important;
+    padding-bottom: 24px !important;
+    margin-top: 0 !important;
+}
+
+footer p,
+footer .copyright,
+footer .footer-links,
+footer .footer-sub,
+footer .text-gray-500,
+footer nav,
+footer div {
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    padding: 0 !important;
+}
+
+/* Убираем двойные внутренние отступы футера от Tailwind (pt-16 pb-8, pb-8, mb-8) */
+footer .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+footer .border-b {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
 
