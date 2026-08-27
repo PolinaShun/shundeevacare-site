@@ -511,11 +511,13 @@
     <div class="container mx-auto max-w-6xl px-4 sm:px-6">
       <h2 class="text-2xl font-bold mb-6">Подход и образование</h2>
 
-      <div class="edu-grid">
+      <div class="education-grid">
         <!-- Левая колонка: карусель -->
-        <div class="edu-carousel relative" role="region" aria-label="Карусель образования и сертификатов" aria-roledescription="carousel">
+        <div class="education-slider-card">
+          <div class="edu-carousel relative" role="region" aria-label="Карусель образования и сертификатов" aria-roledescription="carousel">
+
           <!-- Слайдер -->
-          <div class="edu-slider overflow-hidden rounded-xl shadow-md" aria-live="polite" aria-atomic="false">
+          <div class="edu-slider overflow-hidden" aria-live="polite" aria-atomic="false">
             <div class="edu-slides flex transition-transform duration-500 ease-in-out">
               <!-- Слайд 1 -->
               <div class="edu-slide min-w-full">
@@ -658,10 +660,12 @@
             <button class="w-2 h-2 rounded-full bg-gray-300" aria-label="Перейти к слайду 13"></button>
             <button class="w-2 h-2 rounded-full bg-gray-300" aria-label="Перейти к слайду 14"></button>
           </div>
+          </div>
         </div>
 
         <!-- Правая колонка: текст -->
-        <div class="edu-panel ui-panel-light bg-white/80">
+        <div class="education-text-card">
+          <div>
             <p class="text-gray-700 leading-relaxed mb-4">
               Я работаю в психодинамическом подходе — это про поиск причин, а не "техники от тревоги". Мы будем разбираться, ПОЧЕМУ это происходит, а не только КАК с этим справиться.
             </p>
@@ -671,6 +675,7 @@
             <p class="text-gray-700 leading-relaxed">
               Моя задача — не "чинить" вас (вы не сломаны), а создать безопасное пространство, где можно быть любой: злой, испуганной, "неудобной".
             </p>
+          </div>
         </div>
       </div>
     </div>

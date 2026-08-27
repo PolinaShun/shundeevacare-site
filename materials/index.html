@@ -183,152 +183,89 @@
     </div>
   </section>
 
-  <!-- MATERIALS GRID -->
-  <section class="container mx-auto max-w-6xl px-4 sm:px-6 py-16">
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-
-      <!-- 0. Психологический запрос -->
-      <article class="rounded-2xl ui-panel-light bg-white p-8 flex flex-col justify-between hover:shadow-xl transition-all border border-gray-100 group shadow-sm aspect-square overflow-hidden">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-[10px] uppercase tracking-widest rounded-full font-bold">Статья</span>
-          </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-900 group-hover:text-gray-700 transition-colors">Миф о работе с&nbsp;психологом, который заставляет умных людей страдать годами</h2>
+  <!-- MATERIALS: каталог статей построчным списком -->
+  <section class="materials-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-title">Статьи и материалы</h2>
         </div>
-        <a href="psychological-request.html" class="inline-flex items-center justify-center rounded-full bg-gray-800 text-white px-8 py-3 text-sm font-bold hover:bg-gray-700 transition-colors shadow-sm" onclick="ym(104299152,'reachGoal','materials_zapros')">
-          Читать статью
-        </a>
-      </article>
+        <p class="section-lead">Гайды, статьи и упражнения, которые помогут вам лучше понять свои внутренние сценарии и найти опору.</p>
+      </div>
 
-      <!-- 0. Что происходит в кабинете -->
-      <article class="rounded-2xl ui-panel-light bg-white p-8 flex flex-col justify-between hover:shadow-xl transition-all border border-gray-100 group shadow-sm aspect-square overflow-hidden">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-[10px] uppercase tracking-widest rounded-full font-bold">Гайд</span>
-          </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-900 group-hover:text-gray-700 transition-colors">В кабинете психолога</h2>
-          <p class="text-gray-600 text-sm mb-8 leading-relaxed">
-            Разбираем механику процесса изнутри. Ваш личный чек-лист психологической безопасности без мифов и давления.
-          </p>
-        </div>
-        <a href="v-kabinete.html" class="inline-flex items-center justify-center rounded-full bg-amber-600 text-white px-8 py-3 text-sm font-bold hover:bg-amber-700 transition-colors shadow-sm" onclick="ym(104299152,'reachGoal','materials_v_kabinete')">
-          Получить за 0₽
+      <div class="materials-grid">
+        <!-- 01 -->
+        <a href="psychological-request.html" class="material-card" onclick="ym(104299152,'reachGoal','materials_zapros')">
+          <span class="material-index">01</span>
+          <h3 class="material-title">Миф о работе с психологом, который заставляет умных людей страдать годами</h3>
+          <p class="material-desc">Разбираем, что такое психологический запрос, почему не нужно придумывать идеальную формулировку до сессии и как хаос превращается в цель работы.</p>
+          <span class="material-arrow">→</span>
         </a>
-      </article>
 
-      <!-- 0.5. Деньги и психоанализ -->
-      <article class="rounded-2xl ui-panel-light bg-white p-8 flex flex-col justify-between hover:shadow-xl transition-all border border-gray-100 group shadow-sm aspect-square overflow-hidden">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-[10px] uppercase tracking-widest rounded-full font-bold">Статья</span>
-          </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-900 group-hover:text-gray-700 transition-colors">Деньги и психоанализ</h2>
-          <p class="text-gray-600 text-sm mb-8 leading-relaxed">
-            О чем мы молчим, когда говорим о деньгах? Почему это не математика, а язык бессознательного и право на жизнь.
-          </p>
-        </div>
-        <a href="money-and-psyche.html" class="inline-flex items-center justify-center rounded-full bg-gray-800 text-white px-8 py-3 text-sm font-bold hover:bg-gray-700 transition-colors shadow-sm" onclick="ym(104299152,'reachGoal','materials_dengi')">
-          Читать статью
+        <!-- 02 -->
+        <a href="v-kabinete.html" class="material-card" onclick="ym(104299152,'reachGoal','materials_v_kabinete')">
+          <span class="material-index">02</span>
+          <h3 class="material-title">В кабинете психолога</h3>
+          <p class="material-desc">Разбираем механику процесса изнутри. Ваш личный чек-лист психологической безопасности без мифов и давления.</p>
+          <span class="material-arrow">→</span>
         </a>
-      </article>
 
-      <!-- 0.7. Бешеный темп жизни -->
-      <article class="rounded-2xl ui-panel-light bg-white p-8 flex flex-col justify-between hover:shadow-xl transition-all border border-gray-100 group shadow-sm aspect-square overflow-hidden">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-[10px] uppercase tracking-widest rounded-full font-bold">Статья</span>
-          </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-900 group-hover:text-gray-700 transition-colors">Бешеный темп жизни</h2>
-          <p class="text-gray-600 text-sm mb-8 leading-relaxed">
-            Зачем нам эта скорость и почему психика выбирает ускорение вместо паники? Быстрые изменения как зеркало наших страхов.
-          </p>
-        </div>
-        <a href="pace-of-life.html" class="inline-flex items-center justify-center rounded-full bg-gray-800 text-white px-8 py-3 text-sm font-bold hover:bg-gray-700 transition-colors shadow-sm" onclick="ym(104299152,'reachGoal','materials_temp')">
-          Читать статью
+        <!-- 03 -->
+        <a href="money-and-psyche.html" class="material-card" onclick="ym(104299152,'reachGoal','materials_dengi')">
+          <span class="material-index">03</span>
+          <h3 class="material-title">Деньги и психоанализ</h3>
+          <p class="material-desc">Почему деньги — это не математика, а язык бессознательного и право на жизнь. О чём мы молчим, когда говорим о деньгах.</p>
+          <span class="material-arrow">→</span>
         </a>
-      </article>
 
-      <!-- 0.9. Очередь за жизнью -->
-      <article class="rounded-2xl ui-panel-light bg-white p-8 flex flex-col justify-between hover:shadow-xl transition-all border border-gray-100 group shadow-sm aspect-square overflow-hidden">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-[10px] uppercase tracking-widest rounded-full font-bold">Статья</span>
-          </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-900 group-hover:text-gray-700 transition-colors">Очередь за жизнью</h2>
-          <p class="text-gray-600 text-sm mb-8 leading-relaxed">
-            Почему ты всегда стоишь последней в очереди за собственной жизнью? Разбираем причины «дара всё портить» и путь к подлинному Я.
-          </p>
-        </div>
-        <a href="life-queue.html" class="inline-flex items-center justify-center rounded-full bg-gray-800 text-white px-8 py-3 text-sm font-bold hover:bg-gray-700 transition-colors shadow-sm" onclick="ym(104299152,'reachGoal','materials_ochered')">
-          Читать статью
+        <!-- 04 -->
+        <a href="pace-of-life.html" class="material-card" onclick="ym(104299152,'reachGoal','materials_temp')">
+          <span class="material-index">04</span>
+          <h3 class="material-title">Бешеный темп жизни</h3>
+          <p class="material-desc">Зачем нам эта скорость и почему психика выбирает ускорение вместо паники? Быстрые изменения как зеркало наших страхов.</p>
+          <span class="material-arrow">→</span>
         </a>
-      </article>
 
-      <!-- 1. Внутренний Тиран -->
-      <article class="rounded-2xl ui-panel-light bg-white p-8 flex flex-col justify-between hover:shadow-xl transition-all border border-gray-100 group shadow-sm aspect-square overflow-hidden">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-[10px] uppercase tracking-widest rounded-full font-bold">Чек-лист</span>
-          </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-900 group-hover:text-gray-700 transition-colors">Внутренний Тиран</h2>
-          <p class="text-gray-600 text-sm mb-8 leading-relaxed">
-            6 признаков того, что внутри вас живет жесткий критик, и почему «соберись, тряпка» только забирает силы.
-          </p>
-        </div>
-        <a href="inner-tyrant.html" class="inline-flex items-center justify-center rounded-full bg-amber-600 text-white px-8 py-3 text-sm font-bold hover:bg-amber-700 transition-colors shadow-sm" onclick="ym(104299152,'reachGoal','materials_tiran')">
-          Получить за 0₽
+        <!-- 05 -->
+        <a href="life-queue.html" class="material-card" onclick="ym(104299152,'reachGoal','materials_ochered')">
+          <span class="material-index">05</span>
+          <h3 class="material-title">Очередь за жизнью</h3>
+          <p class="material-desc">Почему ты всегда стоишь последней в очереди за собственной жизнью? Разбираем причины «дара всё портить» и путь к подлинному Я.</p>
+          <span class="material-arrow">→</span>
         </a>
-      </article>
 
-      <!-- 2. Ожидания vs Реальность -->
-      <article class="rounded-2xl ui-panel-light bg-white p-8 flex flex-col justify-between hover:shadow-xl transition-all border border-gray-100 group shadow-sm aspect-square overflow-hidden">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-[10px] uppercase tracking-widest rounded-full font-bold">Статья</span>
-          </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-900 group-hover:text-gray-700 transition-colors">Ожидания от терапии</h2>
-          <p class="text-gray-600 text-sm mb-8 leading-relaxed">
-            Разбираем популярные мифы о психотерапии. Почему в начале может быть сложно и как на самом деле происходят изменения.
-          </p>
-        </div>
-        <a href="therapy-expectations.html" class="inline-flex items-center justify-center rounded-full bg-gray-800 text-white px-8 py-3 text-sm font-bold hover:bg-gray-700 transition-colors shadow-sm" onclick="ym(104299152,'reachGoal','materials_ozhidaniya')">
-          Читать статью
+        <!-- 06 -->
+        <a href="inner-tyrant.html" class="material-card" onclick="ym(104299152,'reachGoal','materials_tiran')">
+          <span class="material-index">06</span>
+          <h3 class="material-title">Внутренний Тиран</h3>
+          <p class="material-desc">6 признаков того, что внутри вас живёт жёсткий критик, и почему «соберись, тряпка» только забирает силы.</p>
+          <span class="material-arrow">→</span>
         </a>
-      </article>
 
-      <!-- 5. Зачем терапия? -->
-      <article class="rounded-2xl ui-panel-light bg-white p-8 flex flex-col justify-between hover:shadow-xl transition-all border border-gray-100 group shadow-sm aspect-square overflow-hidden">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-[10px] uppercase tracking-widest rounded-full font-bold">Статья</span>
-          </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-900 group-hover:text-gray-700 transition-colors">Зачем идти к психологу?</h2>
-          <p class="text-gray-600 text-sm mb-8 leading-relaxed">
-            Разбор мифа о том, что помощь нужна только в кризисе. О разнице между «выживанием» и полноценной жизнью.
-          </p>
-        </div>
-        <a href="why-therapy.html" class="inline-flex items-center justify-center rounded-full bg-gray-800 text-white px-8 py-3 text-sm font-bold hover:bg-gray-700 transition-colors shadow-sm" onclick="ym(104299152,'reachGoal','materials_zachem')">
-          Читать статью
+        <!-- 07 -->
+        <a href="therapy-expectations.html" class="material-card" onclick="ym(104299152,'reachGoal','materials_ozhidaniya')">
+          <span class="material-index">07</span>
+          <h3 class="material-title">Ожидания от терапии</h3>
+          <p class="material-desc">Разбираем популярные мифы о психотерапии. Почему в начале может быть сложно и как на самом деле происходят изменения.</p>
+          <span class="material-arrow">→</span>
         </a>
-      </article>
 
-      <!-- Как войти в этот сезон по-человечески? -->
-      <article class="rounded-2xl ui-panel-light bg-white p-8 flex flex-col justify-between hover:shadow-xl transition-all border border-gray-100 group shadow-sm aspect-square overflow-hidden">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-[10px] uppercase tracking-widest rounded-full font-bold">Практика / Опора</span>
-            <span class="text-gray-400 text-[10px] font-medium">Август 2026</span>
-          </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-900 group-hover:text-gray-700 transition-colors">Как войти в этот сезон по-человечески?</h2>
-          <p class="text-gray-600 text-sm mb-8 leading-relaxed">
-            Когда уходит солнце, организму тупо тяжело — это биология. О том, как войти в осень без надрыва, чувства вины и попыток стать богиней продуктивности.
-          </p>
-        </div>
-        <a href="season-autumn.html" class="inline-flex items-center justify-center rounded-full bg-gray-800 text-white px-8 py-3 text-sm font-bold hover:bg-gray-700 transition-colors shadow-sm" onclick="ym(104299152,'reachGoal','materials_sezon')">
-          Читать статью
+        <!-- 08 -->
+        <a href="why-therapy.html" class="material-card" onclick="ym(104299152,'reachGoal','materials_zachem')">
+          <span class="material-index">08</span>
+          <h3 class="material-title">Зачем идти к психологу?</h3>
+          <p class="material-desc">Разбор мифа о том, что помощь нужна только в кризисе. О разнице между «выживанием» и полноценной жизнью.</p>
+          <span class="material-arrow">→</span>
         </a>
-      </article>
 
+        <!-- 09 -->
+        <a href="season-autumn.html" class="material-card" onclick="ym(104299152,'reachGoal','materials_sezon')">
+          <span class="material-index">09</span>
+          <h3 class="material-title">Как войти в этот сезон по-человечески?</h3>
+          <p class="material-desc">Когда уходит солнце, организму тупо тяжело — это биология. О том, как войти в осень без надрыва, чувства вины и попыток стать богиней продуктивности.</p>
+          <span class="material-arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 

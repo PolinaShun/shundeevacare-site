@@ -39,8 +39,24 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 
   <link rel="stylesheet" href="../styles/fonts.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../styles/main.css" />
+  <style>
+    /* Обычный текст — как в статье «Как войти в этот сезон» (Inter 16.5px/1.65) */
+    .prose p {
+        font-family: 'Inter', sans-serif !important;
+        font-size: 16.5px !important;
+        line-height: 1.65 !important;
+        color: #1f2937 !important;
+    }
+    /* Текст в тёмной плашке — светлый (чтобы был виден) */
+    .prose .bg-gray-900,
+    .prose .bg-gray-900 p,
+    .prose .bg-gray-900 * {
+        color: #ffffff !important;
+    }
+  </style>
   <script src="../js/main.js"></script>
   <script type="application/ld+json">
   {
@@ -150,7 +166,7 @@
   </header>
 
   <!-- CONTENT -->
-  <section class="container mx-auto max-w-4xl px-4 sm:px-6 py-12 md:py-20">
+  <section class="container mx-auto max-w-[800px] px-4 sm:px-6 py-12 md:py-20">
     <article class="rounded-2xl ui-panel-light bg-white p-8 md:p-16 shadow-sm">
       
       <div class="flex items-center gap-4 mb-6">

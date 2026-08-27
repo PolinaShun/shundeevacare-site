@@ -1,4 +1,6 @@
-/* Переменные и базовые настройки */
+/* ============================================================
+   Переменные и базовые настройки
+============================================================ */
 :root {
     --hero-bg: #5e5e5e;
     --hero-bg-light: #7c7c7c;
@@ -23,7 +25,18 @@
     }
 }
 
-/* Фоны и цвета */
+/* ============================================================
+   Тонкие границы по дизайн-системе
+============================================================ */
+.topics-grid,
+.topic-card,
+.ui-border-b {
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   Фоны и цвета
+============================================================ */
 .hero-bg {
     background: linear-gradient(90deg, var(--hero-bg-light) 0%, var(--hero-bg) 55%);
 }
@@ -208,19 +221,14 @@
         margin-bottom: 1rem;
     }
 
-    #edu .grid {
+    #edu .education-grid {
         gap: 1.5rem;
         grid-template-columns: 1fr;
     }
 
-    #edu .ui-panel-light {
-        padding: 1rem;
-        max-width: 100%;
-    }
-
-    #edu .edu-carousel {
-        margin-bottom: 1rem;
-        width: 100%;
+    #edu .education-text-card {
+        padding: 1.5rem;
+        min-height: auto;
     }
 }
 
@@ -263,197 +271,6 @@
     .card-hover::after {
         display: none;
     }
-}
-
-/* Стили для карусели в блоке "Подход и образование" */
-.edu-carousel {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.edu-slider {
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    max-width: 100%;
-}
-
-.edu-slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    max-width: 100%;
-}
-
-.edu-slide {
-    min-width: 100%;
-    max-width: 100%;
-    flex-shrink: 0;
-}
-
-.edu-slide img,
-.edu-img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.carousel-nav {
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-
-.carousel-nav:hover {
-    opacity: 1;
-}
-
-.indicator-active {
-    width: 12px;
-    transition: width 0.3s ease;
-}
-
-/* Адаптивные стили для карусели на мобильных */
-@media (max-width: 768px) {
-    #edu .edu-slide img,
-    #edu .edu-img,
-    .edu-carousel .edu-slide img {
-        height: 200px !important;
-        max-height: 35vh;
-        object-fit: contain !important;
-        background-color: #f9fafb;
-        width: 100%;
-    }
-
-    .edu-slide {
-        min-height: auto !important;
-        height: auto !important;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .edu-slide .text-center {
-        font-size: 0.75rem;
-        line-height: 1.25rem;
-        padding: 0.5rem 0.25rem;
-        margin-top: 0.5rem;
-    }
-
-    .edu-slider {
-        margin: 0;
-        max-width: 100%;
-        width: 100%;
-    }
-
-    .edu-carousel {
-        max-width: 100%;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .carousel-nav {
-        opacity: 0.9;
-        background-color: rgba(255, 255, 255, 0.95);
-        padding: 0.5rem;
-        z-index: 10;
-    }
-
-    .carousel-nav svg {
-        width: 1.25rem;
-        height: 1.25rem;
-    }
-
-    .carousel-nav:active {
-        background-color: rgba(255, 255, 255, 1);
-    }
-
-    .carousel-indicators {
-        margin-top: 0.75rem;
-        display: flex;
-        justify-content: center;
-    }
-
-    .carousel-indicators button {
-        width: 0.5rem;
-        height: 0.5rem;
-    }
-
-    .indicator-active {
-        width: 0.75rem;
-    }
-}
-
-/* Стили для модального окна */
-#imageModal {
-    transition: opacity 0.3s ease;
-}
-
-#modalImage {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-#loadingOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #333;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-}
-
-.main {
-    opacity: 1;
-    visibility: visible;
-}
-
-.main._hidden {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Стили для FAQ - жирный заголовок при раскрытии */
-details[open] > summary {
-    font-weight: 600;
-}
-
-/* Отступ для контента FAQ при раскрытии */
-details[open] > p {
-    padding-left: 20px;
-    line-height: 1.4;
-}
-
-/* Отступ первого параграфа от заголовка */
-details[open] > p:first-of-type {
-    margin-top: 20px;
-}
-
-/* Отступ между параграфами в FAQ */
-details[open] > p + p {
-    margin-top: 10px;
 }
 
 /* ==========================================================================
@@ -560,23 +377,12 @@ details[open] > p + p {
     }
 }
 
-/* ==========================================================================
-   ЕДИНАЯ ТИПОГРАФИЧЕСКАЯ СИСТЕМА САЙТА
-   H2 секций:  по левому краю, 32px / 600 / #1e293b / отступ снизу 24px
-   Подзаголовок секции (.section-lead): по левому краю, 15px / #64748b, max-width 580px
-   Наборный текст: 16px / 1.6 / #333333 (по всему сайту)
-========================================================================== */
-
 /* --- H2 заголовки ключевых секций (единый размер) --- */
 #topics .section-title,
 #edu h2,
 #pricing h2,
 #faq h2,
-#contacts h2,
-#articles h2,
-#websites h2,
-#tools h2,
-#videos h2 {
+#contacts h2 {
     text-align: left;
     font-size: 32px;
     font-weight: 600;
@@ -585,67 +391,305 @@ details[open] > p + p {
     margin: 0 0 24px 0;
 }
 
-/* --- Герой: плотный стык со следующей секцией --- */
-main section.hero-bg {
-    margin-bottom: 0;
-}
-
-/* --- Подзаголовок секции --- */
-.section-lead {
-    text-align: left;
-    margin: 0 0 32px 0;
-    max-width: 580px;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #64748b;
-}
-
-/* --- Наборный текст: весь основной текст крупнее и свободнее для чтения --- */
-body, p, .topic-desc, .faq-answer, .about-text {
-    font-size: 16px !important;
-    line-height: 1.6 !important;
-    color: #333333;
-}
-
-/* --- Отзывы (цитаты) тоже крупнее --- */
-article.ui-panel-light blockquote {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333333;
-}
-
-/* --- «Подход и образование»: сетка 1:1 с карточками равной высоты --- */
-.edu-grid {
+/* ============================================================
+   EDUCATION: «Подход и образование» — симметрия 50/50
+============================================================ */
+.education-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
-    align-items: stretch;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
 }
 
-#edu .edu-carousel {
-    height: 100%;
+/* Отступ до секции — чтобы блоки не прилипали друг к другу */
+#edu,
+.education-section {
+    margin-top: 40px;
 }
 
-#edu .edu-slider,
-#edu .edu-panel {
-    height: 100%;
-    border: 1.5px solid rgba(0, 0, 0, .18);
+.education-grid > * {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Левая колонка — слайдер БЕЗ плашки: без фона, границ и паддингов */
+.education-slider-card {
+    display: block;
+    min-width: 0;
+}
+
+/* Фото диплома — на общем фоне страницы, cover */
+.education-slider-card .edu-slide img,
+.education-slider-card .edu-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
     border-radius: 12px;
+    display: block;
 }
 
-#edu .edu-panel {
+/* Подпись под дипломом */
+.education-slider-card .edu-slide .text-center,
+.education-slider-card .edu-caption {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4b5563;
+}
+
+/* Точки пагинации — прямо под подписью на общем фоне страницы */
+.education-slider-card .carousel-indicators {
+    margin-top: 16px;
+}
+
+/* Правая колонка — белая карточка с текстом */
+.education-text-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     padding: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    box-sizing: border-box;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
 }
 
-@media (max-width: 767px) {
-    .edu-grid {
-        grid-template-columns: 1fr;
+.education-text-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #374151;
+    margin-bottom: 16px;
+}
+
+.education-text-card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ============================================================
+   Карусель в блоке «Подход и образование»
+============================================================ */
+.edu-carousel {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.edu-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    max-width: 100%;
+}
+
+.edu-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    max-width: 100%;
+}
+
+.edu-slide {
+    min-width: 100%;
+    max-width: 100%;
+    flex-shrink: 0;
+}
+
+.edu-slide img,
+.edu-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+}
+
+.carousel-nav {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-nav:hover {
+    opacity: 1;
+}
+
+.indicator-active {
+    width: 12px;
+    transition: width 0.3s ease;
+}
+
+/* Адаптивные стили для карусели на мобильных */
+@media (max-width: 768px) {
+    #edu .edu-slide img,
+    #edu .edu-img,
+    .edu-carousel .edu-slide img {
+        height: 240px !important;
+        max-height: 45vh;
+        object-fit: cover !important;
+        width: 100%;
+        border-radius: 12px;
+    }
+
+    .edu-slide {
+        min-height: auto !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .edu-slide .text-center {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        padding: 0.5rem 0.25rem;
+        margin-top: 0.5rem;
+    }
+
+    .edu-slider {
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .edu-carousel {
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .carousel-nav {
+        opacity: 0.9;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 0.5rem;
+        z-index: 10;
+    }
+
+    .carousel-nav svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .carousel-nav:active {
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    .carousel-indicators {
+        margin-top: 0.75rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .carousel-indicators button {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+
+    .indicator-active {
+        width: 0.75rem;
     }
 }
 
+/* ============================================================
+   Модальное окно
+============================================================ */
+#imageModal {
+    transition: opacity 0.3s ease;
+}
+
+#modalImage {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ============================================================
+   Загрузочный оверлей и main
+============================================================ */
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+.main {
+    opacity: 1;
+    visibility: visible;
+}
+
+.main._hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================================
+   FAQ
+============================================================ */
+/* Жирный заголовок при раскрытии */
+details[open] > summary {
+    font-weight: 600;
+}
+
+/* Отступ для контента FAQ при раскрытии */
+details[open] > p {
+    padding-left: 20px;
+    line-height: 1.4;
+}
+
+/* Отступ первого параграфа от заголовка */
+details[open] > p:first-of-type {
+    margin-top: 20px;
+}
+
+/* Отступ между параграфами в FAQ */
+details[open] > p + p {
+    margin-top: 10px;
+}
+
+/* ============================================================
+   Косметическая типографика (точечные селекторы)
+============================================================ */
+
+/* Hero: контрастный читабельный подзаголовок */
+header.hero-bg p {
+    font-size: 16px !important;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Карточки «О работе со мной»: гармоничные внутренние отступы */
+.card-hover {
+    padding: 24px 20px !important;
+}
+
+/* ==========================================================================
+   СТАТЬИ: контрастный основной текст, шаги, цитаты, CTA, швейцарский плакат
+========================================================================== */
 /* --- Статьи: контрастный основной текст (плотный, тёмный, чёткий) --- */
 .article-content,
 .article-content p {
@@ -719,7 +763,7 @@ article.ui-panel-light blockquote {
     color: #0f172a !important;
 }
 
-/* --- Статьи: тёплая цитата-плашка (19:00) --- */
+/* --- Статьи: тёплая цитата-плашка --- */
 .article-quote-block {
     background: #fdfbf7;
     border-left: 3px solid #f08130;
@@ -812,7 +856,7 @@ article.ui-panel-light blockquote {
 
 .row-mid {
   grid-template-columns: 1fr 32px;
-  margin: 32px 0;
+  margin: 32px 0 0 0;
 }
 
 .row-bottom {
@@ -906,8 +950,8 @@ article.ui-panel-light blockquote {
 }
 
 .poster-steps {
-  list-style: decimal;
-  padding-left: 20px;
+  list-style: none;
+  padding-left: 0;
   margin: 0;
 }
 
@@ -922,14 +966,60 @@ article.ui-panel-light blockquote {
   color: #000000;
 }
 
+/* --- Шаги как смысловые блоки (каждый пункт самостоятельный) --- */
+.poster-steps .step-item {
+  display: block;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.poster-steps .step-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.poster-steps .step-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: #f08130;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.poster-steps .step-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+.poster-steps .step-text {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* Ссылки в плакате — привычный синий, подчёркнутые */
+.poster-steps li a,
+.swiss-poster a {
+  color: #1a0dab;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.poster-steps li a:hover,
+.swiss-poster a:hover {
+  color: #551a8b;
+}
+
 /* Кнопка */
 .poster-btn {
   display: inline-block;
   background: #111111;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 12px 28px;
   border-radius: 999px;
   text-decoration: none;
+  border: none;
   font-size: 14px;
   font-weight: 500;
   margin-top: 8px;
@@ -950,8 +1040,8 @@ article.ui-panel-light blockquote {
 }
 
 .intro-lead {
-  font-weight: 600;
-  color: #0f172a !important;
+  font-weight: 300;
+  color: #1f2937 !important;
   margin-top: 32px;
   margin-bottom: 24px;
 }
@@ -959,8 +1049,8 @@ article.ui-panel-light blockquote {
 .poster-quote-block {
   background: #fdfbf7;
   border-left: 3px solid #f08130;
-  padding: 20px 22px;
-  margin: 32px 0;
+  padding: 40px 32px;
+  margin: 24px 0;
   border-radius: 0 8px 8px 0;
 }
 
@@ -987,3 +1077,114 @@ article.ui-panel-light blockquote {
   margin: 8px 0 24px auto;
   color: #64748b !important;
 }
+
+/* ==========================================================================
+   MATERIALS: каталог статей — журнальный строчный список (как блок #topics)
+========================================================================== */
+.materials-section {
+    background: #ffffff;
+    color: #1f2937;
+    margin-top: 0;
+    padding: 48px 0;
+    font-family: inherit;
+}
+
+.materials-section .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 64px);
+}
+
+.materials-section .section-header {
+    margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.materials-section .section-title {
+    font-family: inherit;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: normal;
+    color: #111827;
+    margin: 0;
+}
+
+.materials-section .section-lead {
+    margin-top: 14px;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4b5563;
+    max-width: 560px;
+}
+
+/* Список строк */
+.materials-grid {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.material-card {
+    display: grid;
+    grid-template-columns: 48px 320px 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.3s ease;
+}
+
+.material-card:hover {
+    background: #f9fafb;
+}
+
+.material-index {
+    font-family: inherit;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+}
+
+.material-title {
+    font-family: inherit;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #111827;
+    margin: 0;
+}
+
+.material-desc {
+    font-family: inherit;
+    font-style: normal;
+    color: #4b5563;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.material-arrow {
+    color: #9ca3af;
+    font-size: 18px;
+    align-self: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.material-card:hover .material-arrow {
+    color: #111827;
+    transform: translateX(3px);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .material-card {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    .material-arrow {
+        display: none;
+    }
+}
+
+
