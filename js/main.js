@@ -1,3 +1,26 @@
+// Гарантированное скрытие прелоадера: не ждём window 'load' (на проде он может не сработать из-за зависшего ресурса),
+// скрываем оверлей сразу на DOMContentLoaded и безусловно через таймаут-фолбэк.
+(function hideLoader() {
+    function hide() {
+        try {
+            const overlay = document.getElementById('loadingOverlay') || document.querySelector('.preloader') || document.querySelector('#loader');
+            if (overlay) overlay.style.display = 'none';
+            const main = document.getElementById('main');
+            if (main) {
+                main.style.display = 'block';
+                main.classList.remove('_hidden');
+            }
+        } catch (e) { console.warn('hideLoader:', e); }
+    }
+    if (document.readyState !== 'loading') {
+        hide();
+    } else {
+        document.addEventListener('DOMContentLoaded', hide);
+    }
+    // Безусловный фолбэк максимум через 800мс — даже если load/скрипты упали
+    setTimeout(hide, 800);
+})();
+
 window.addEventListener('load', function() {
     const loadingOverlay = document.getElementById('loadingOverlay');
     const mainContent = document.getElementById('main');
@@ -13,12 +36,13 @@ window.addEventListener('load', function() {
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             }
-        }, 1000);
+        }, 300);
     }
 });
 
 // Unified DOMContentLoaded handler
 document.addEventListener('DOMContentLoaded', function() {
+    try {
     // ===== CAROUSEL AND MODAL =====
     // Элементы карусели
     const slider = document.querySelector('.edu-slider');
@@ -224,5 +248,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 el.style.transform = 'none';
             });
         });
+    }
+    } catch (e) {
+        console.warn('init error:', e);
     }
 });
