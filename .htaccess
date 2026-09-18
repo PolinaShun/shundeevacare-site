@@ -23,6 +23,24 @@ AddType font/woff                .woff
 # and it creates an infinite redirect loop (ERR_TOO_MANY_REDIRECTS).
 RewriteEngine On
 
+# ── HTTPS ─────────────────────────────────────────────────────
+# Cloud4box terminates TLS on a proxy: Apache always sees HTTPS=off,
+# so a plain "Redirect https" here loops infinitely
+# (ERR_TOO_MANY_REDIRECTS, см. коммит 6164a40).
+# Поэтому перенаправляем только те запросы, про которые прокси явно
+# сказал, что они пришли по http (X-Forwarded-Proto: http).
+# Если заголовка нет — правило не срабатывает, поведение как раньше.
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# ── Trailing slash для каталогов ──────────────────────────────
+# DirectorySlash строит свой 301 от схемы, которую видит Apache (http),
+# из-за чего /materials уводил на http://…/materials/ и терял https.
+# Отдаём редирект сами, всегда на https.
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI}/ [R=301,L]
+
 # ── Serve .html files without extension ──────────────────────
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

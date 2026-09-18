@@ -128,4 +128,20 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Материал: Миф о работе с психологом -->
+  <url>
+    <loc>https://shundeevacare.ru/materials/psychological-request.html</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Материал: Как войти в этот сезон по-человечески -->
+  <url>
+    <loc>https://shundeevacare.ru/materials/season-autumn.html</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
