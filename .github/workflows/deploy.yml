@@ -23,7 +23,10 @@ jobs:
         server-dir: /www/shundeevacare.ru/
         protocol: ftp
         timeout: 60000
-        dangerous-clean-slate: true
+        # ВНИМАНИЕ: dangerous-clean-slate убран 18.09.2026.
+        # Он сначала полностью чистит каталог на хостинге, и если синк потом
+        # падает (а 18.09 он упал), сайт остаётся пустым: index.html → 404,
+        # на / — 403. Без clean-slate неудачный деплой ничего не ломает.
         exclude: |
           **/.git*
           **/.git*/**

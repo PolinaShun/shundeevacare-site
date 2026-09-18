@@ -6,6 +6,7 @@ Allow: /
 # Служебные файлы без контента для пользователей
 Disallow: /manifest.json
 Disallow: /desktop.ini
+Disallow: /materials/template.html
 
 # НЕ блокируем /js/ и /styles/ — Google требует доступ к CSS/JS для рендеринга
 # (блокировка ресурсов = страница выглядит как текстовый хлам, позиции падают)
