@@ -32,6 +32,8 @@ SKIP_DIRS = {".git", ".github", "v2", "scripts", "бекапы проектов"
 SKIP_SUFFIX = (".zip", ".docx")
 SKIP_NAMES = {"CLAUDE-CONTEXT.md", "MATERIALS-GUIDE.md", "INSTRUCTIONS.md", ".DS_Store",
               "CONTEXT.md", "AGENTS.md", ".cursorrules"}
+# AGENTS.md/CONTEXT.md — правила и доступы для агентов: живут в репозитории,
+# на хостинг не выкладываются (правила для агентов не должны быть на публичном сайте).
 
 
 def local_files():
