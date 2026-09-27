@@ -1361,6 +1361,14 @@ header.hero-bg p {
     footer .container {
         padding-top: 0 !important;
         padding-bottom: 0 !important;
+        /* Горизонтальные отступы возвращаем: правило «footer div { padding: 0 }» ниже
+           срезало px-4 у контейнера, и текст футера прилипал к краям экрана */
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    footer > div.container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
     }
     footer .border-b {
         margin-bottom: 0 !important;
