@@ -1368,5 +1368,119 @@ header.hero-bg p {
     }
 }
 
+/* ==========================================================================
+   СТАТЬИ: мобильное чтение — только узкие экраны, десктоп не затрагивается
+========================================================================== */
+@media (max-width: 767px) {
+    /* Карточка статьи: меньше внутренних отступов, текст шире */
+    article.ui-panel-light {
+        padding: 22px 18px !important;
+        border-radius: 14px !important;
+        box-shadow: none !important;
+    }
+
+    article.ui-panel-light > h1 {
+        font-size: 25px !important;
+        line-height: 1.28 !important;
+        margin-bottom: 18px !important;
+    }
+
+    /* Основной текст: 17px, спокойный интерлиньяж, переносы по-русски */
+    article.ui-panel-light .prose,
+    article.ui-panel-light .article-content,
+    article.ui-panel-light .prose > p,
+    article.ui-panel-light .article-content > p {
+        font-size: 17px !important;
+        line-height: 1.72 !important;
+    }
+
+    article.ui-panel-light .prose > p,
+    article.ui-panel-light .article-content > p {
+        margin-bottom: 18px !important;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+    }
+
+    /* Вводный абзац: без тяжёлого отступа слева */
+    article.ui-panel-light .prose > p:first-of-type {
+        font-size: 18px !important;
+        line-height: 1.6 !important;
+        padding-left: 14px !important;
+    }
+
+    /* Подзаголовки */
+    article.ui-panel-light .prose h2,
+    article.ui-panel-light h2 {
+        font-size: 21px !important;
+        line-height: 1.3 !important;
+        margin-top: 30px !important;
+        margin-bottom: 12px !important;
+    }
+
+    article.ui-panel-light .prose h3,
+    article.ui-panel-light h3 {
+        font-size: 18.5px !important;
+        line-height: 1.35 !important;
+    }
+
+    /* Списки */
+    article.ui-panel-light .prose ul,
+    article.ui-panel-light .prose ol {
+        padding-left: 18px !important;
+    }
+
+    article.ui-panel-light .prose li {
+        font-size: 17px !important;
+        line-height: 1.65 !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Врезки и цитаты */
+    article.ui-panel-light blockquote {
+        padding-left: 14px !important;
+        font-size: 17px !important;
+        line-height: 1.6 !important;
+    }
+
+    .article-quote-block {
+        padding: 18px 16px !important;
+        margin: 26px 0 !important;
+    }
+
+    .cta-box {
+        padding: 26px 18px !important;
+    }
+
+    article.ui-panel-light img {
+        border-radius: 10px;
+    }
+
+    article.ui-panel-light p,
+    article.ui-panel-light li {
+        text-wrap: pretty;
+    }
+}
+
+/* ==========================================================================
+   ГЛАВНАЯ: первое фото — на всю ширину экрана, без рамки (только мобильные)
+========================================================================== */
+@media (max-width: 767px) {
+    .photo-frame {
+        width: calc(100% + 32px) !important;
+        max-width: calc(100% + 32px) !important;
+        margin-left: -16px !important;
+        margin-right: -16px !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .photo-frame .photo-img {
+        width: 100% !important;
+        border-radius: 0 !important;
+    }
+}
+
 
 
