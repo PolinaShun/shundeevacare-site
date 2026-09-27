@@ -1462,10 +1462,13 @@ header.hero-bg p {
 ========================================================================== */
 @media (max-width: 767px) {
     .photo-frame {
-        width: calc(100% + 32px) !important;
-        max-width: calc(100% + 32px) !important;
-        margin-left: -16px !important;
-        margin-right: -16px !important;
+        /* Ширину считаем от вьюпорта, а не от контейнера: отступы контейнера
+           разные (16px до 640px, 24px на 640–767px), из-за жёстких -16px
+           на больших телефонах оставались белые полосы по 8px с каждой стороны. */
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(50% - 50vw) !important;
+        margin-right: calc(50% - 50vw) !important;
         border: none !important;
         border-radius: 0 !important;
         padding: 0 !important;
