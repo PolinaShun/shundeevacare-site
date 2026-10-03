@@ -1185,6 +1185,10 @@ header.hero-bg p {
     .material-arrow {
         display: none;
     }
+    /* Лид раздела дублирует подзаголовок в hero — на мобильных скрываем */
+    .materials-section .section-lead {
+        display: none;
+    }
 }
 
 /* ==========================================================================
